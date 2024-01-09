@@ -2,17 +2,22 @@
 <html>
   
   <head>
-    <div id="agentz-chatbot-1f1d7e0d-79f1-451c-b3c8-ba50ccb8725a"></div>
+    <div id="agentz-chatbot-ae63648f-0263-486e-8614-72993a8dd557"></div>
     <script>
-    document.addEventListener('readystatechange', function(event){
+      function LoadChatWidget() {
+        var resource = document.createElement('script'); 
+        resource.defer = "true";
+        resource.src = "https://staging-chatbot.agentz.ai/agentz-chatbot.js?version=1&botUrl=https://staging-chatbot.agentz.ai&title=title&businessAgent=ae63648f-0263-486e-8614-72993a8dd557";
+        var script = document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(resource, script);
+      }
+      document.addEventListener('readystatechange', function(event){
         if (event.target.readyState === "complete") {
-            var resource = document.createElement('script'); 
-            resource.defer = "true";
-            resource.src = "https://chatbot.agentz.ai/agentz-chatbot.js?version=1&botUrl=https://chatbot.agentz.ai&title=title&businessAgent=1f1d7e0d-79f1-451c-b3c8-ba50ccb8725a";
-            var script = document.getElementsByTagName('script')[0];
-            script.parentNode.insertBefore(resource, script);
+          setTimeout(function() {
+            LoadChatWidget();
+          }, 5000)    
         }
-    }, false);
+      }, false);
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" 
             integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
