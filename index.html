@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html>
-  
   <head>
-    <div id="agentz-chatbot-ae63648f-0263-486e-8614-72993a8dd557"></div>
-    <script>
-      function LoadChatWidget() {
-        var resource = document.createElement('script'); 
-        resource.defer = "true";
-        resource.src = "https://staging-chatbot.agentz.ai/agentz-chatbot.js?version=1&botUrl=https://staging-chatbot.agentz.ai&title=title&businessAgent=ae63648f-0263-486e-8614-72993a8dd557";
-        var script = document.getElementsByTagName('script')[0];
-        script.parentNode.insertBefore(resource, script);
-      }
-      document.addEventListener('readystatechange', function(event){
-        if (event.target.readyState === "complete") {
-          setTimeout(function() {
-            LoadChatWidget();
-          }, 5000)    
-        }
-      }, false);
-    </script>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" 
             integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/7.0.0/material-components-web.min.js" 
@@ -47,9 +31,23 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
-
-
-  </head>
+<div id="agentz-chatbot-ae63648f-0263-486e-8614-72993a8dd557"></div>
+    <script>
+      function LoadChatWidget() {
+        var resource = document.createElement('script'); 
+        resource.defer = "true";
+        resource.src = "https://staging-chatbot.agentz.ai/agentz-chatbot.js?version=1&botUrl=https://staging-chatbot.agentz.ai&title=title&businessAgent=ae63648f-0263-486e-8614-72993a8dd557";
+        var script = document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(resource, script);
+      }
+      document.addEventListener('readystatechange', function(event){
+        if (event.target.readyState === "complete") {
+          setTimeout(function() {
+            LoadChatWidget();
+          }, 5000)    
+        }
+      }, false);
+    </script>
   <body>
     <header>
       <h2><a href="#">Mountain Travel</a></h2>
@@ -60,61 +58,6 @@
         <li><a href="#">Contacts</a></li>
       </nav>
     </header>
-    <div class="agentz-connect-now-container"></div>
-    <script>
-      function appendCDNLinks(type, srcOrHref) {
-        const resource = type === "script" ? document.createElement("script") : document.createElement("link");
-        if (type === "script") {
-          resource.src = srcOrHref;
-          document.head.appendChild(resource);
-        } else if (type === "link") {
-          resource.rel = "stylesheet";
-          resource.href = srcOrHref;
-          document.head.appendChild(resource);
-        }
-      }
-      appendCDNLinks("script", "https://code.jquery.com/jquery-3.6.4.min.js");
-      appendCDNLinks("script", "https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js");
-      appendCDNLinks("link", "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css");
-      appendCDNLinks("script", "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js");
-      appendCDNLinks("script", "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js");
-      appendCDNLinks("link", "https://use.fontawesome.com/releases/v5.15.3/css/all.css");
-      appendCDNLinks("link", "https://fonts.googleapis.com/icon?family=Material+Icons");
-      appendCDNLinks("link", "https://agentz-ui-assets.s3.amazonaws.com/style.css");
-      var responseJson = {};
-      async function fetchData() {
-        const apiUrl = "https://staging-chatbot.agentz.ai/api/business/v1/businessagents/ae63648f-0263-486e-8614-72993a8dd557/properties/connectNowStyleProperties";
-        fetch(apiUrl)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("HTTP error! Status: response.status");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            responseJson = data.connectNowStyleProperties;
-            const addPlusBetweenWords = (inputString) => inputString.split(" ").length > 1 ? inputString.split(" ").join("+") : inputString;
-            const fontFamily = addPlusBetweenWords(responseJson.fontStylePreference.fontFamily);
-            const fontUrl = "https://fonts.googleapis.com/css2?family=" + fontFamily + "&display=swap";
-            appendCDNLinks("link", fontUrl);
-            setTimeout(() => {
-              LoadConnectNowScript();
-            }, 2000);
-          })
-          .catch((error) => {
-            console.error("Error during fetch:", error);
-          });
-      }
-      function LoadConnectNowScript() {
-        var resource = document.createElement("script");
-        resource.defer = "true";
-        resource.src = "https://agentz-ui-assets.s3.amazonaws.com/connectNowScript.js";
-        resource.setAttribute("data-environment", "staging");
-        resource.setAttribute("data-webHookId", "b1ee7ee7d65b4ce59baf3bc81ebb4ec4");
-        document.body.appendChild(resource);
-      }
-      fetchData();
-  </script>
     <section class="hero">
       <div
         class="background-image"
@@ -122,7 +65,8 @@
       ></div>
       <div class="hero-content-area">
         <h1>Mountain Travel</h1>
-        <h3>Unmissable Adventure Tours Around The World</h3>
+        <h3>Unmissable Adventure Tours Around The World
+        </h3>
         <a href="#" class="btn">Contact Us Now</a>
       </div>
     </section>
@@ -247,5 +191,6 @@
         </li>
       </ul>
     </footer>
+    <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=chessgrad1"></script>
   </body>
 </html>
